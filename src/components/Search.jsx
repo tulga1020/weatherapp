@@ -2,14 +2,11 @@ import { IoMdSearch } from "react-icons/io";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export const Search = () => {
+export const Search = ({ setWeather }) => {
   const [city, setCity] = useState("");
-  const [weather, setWeather] = useState([]);
-
   const cityNameHandler = (event) => {
     setCity(event.target.value);
   };
-
   const fetchCordinate = async (queryName) => {
     if (!queryName) {
       return;
@@ -33,10 +30,8 @@ export const Search = () => {
         },
       }
     );
-    const wcity = res.city_name;
     setWeather(data);
   };
-  console.log(weather);
 
   return (
     <div className="flex flex-col gap-4">

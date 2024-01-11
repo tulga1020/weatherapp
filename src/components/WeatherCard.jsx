@@ -1,17 +1,26 @@
 import Image from "next/image";
 import { Icons } from "@/components/Icons";
 export const WeatherCard = (props) => {
-  const { color, date, city, degree, condition, dayNight, dayNightShadow } =
-    props;
+  const {
+    textcolordate = "",
+    textcolorcity = "",
+    color,
+    date,
+    city,
+    degree,
+    condition,
+    dayNight,
+    dayNightShadow,
+  } = props;
   return (
     <div
-    // className={color}
-    // className=" //"w-[250px] h-[500px] bg-white rounded-2xl flex flex-col justify-between p-4 g-4
+      className={color}
+      // className=" //"w-[250px] h-[500px] bg-white rounded-2xl flex flex-col justify-between p-4 g-4
     >
       <div className="flex justify-between items-center">
         <div className="flex flex-col">
-          <div>{date}</div>
-          <div className="text-[30px]">{city}</div>
+          <div className={textcolordate}>{date}</div>
+          <div className={textcolorcity}>{city}</div>
         </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"

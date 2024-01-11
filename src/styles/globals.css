@@ -9,5 +9,5 @@
   @apply w-[250px] h-[500px] bg-white rounded-2xl flex flex-col justify-between p-4 gap-4;
 }
 .nightCard {
-  @apply w-[250px] h-[500px] bg-black rounded-2xl flex flex-col justify-between p-4 gap-4;
+  @apply w-[250px] h-[500px] text-white bg-black rounded-2xl flex flex-col justify-between p-4 gap-4;
 }
