@@ -2,35 +2,10 @@ import { IoMdSearch } from "react-icons/io";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export const Search = ({ setWeather }) => {
+export const Search = (props) => {
   const [city, setCity] = useState("");
   const cityNameHandler = (event) => {
     setCity(event.target.value);
-  };
-  const fetchCordinate = async (queryName) => {
-    if (!queryName) {
-      return;
-    }
-    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${queryName}.json?access_token=pk.eyJ1IjoidHVydXV1dSIsImEiOiJjbDBhZW15ZHAwMGhjM2RtZjB6dnltZnhjIn0.HSb4dmJFSM2USxDkTsScDg`;
-    const res = await axios(url);
-    return res.data;
-  };
-
-  const fetchWeather = async () => {
-    const res = await fetchCordinate(city);
-    const coordinates = res.features[0].geometry.coordinates;
-    const data = await axios(
-      `https://weatherbit-v1-mashape.p.rapidapi.com/forecast/3hourly?lat=${coordinates[1]}&lon=${coordinates[0]}`,
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-host": "weatherbit-v1-mashape.p.rapidapi.com",
-          "x-rapidapi-key":
-            "be4af8700emsh02325ebe33a668ap1cdd50jsn94ec61e20286",
-        },
-      }
-    );
-    setWeather(data);
   };
 
   return (
@@ -43,7 +18,7 @@ export const Search = ({ setWeather }) => {
           viewBox="0 0 48 48"
           fill="none"
           className="flex shrink-0"
-          onClick={fetchWeather}
+          onClick={city}
         >
           <g opacity="0.2">
             <path
@@ -61,7 +36,7 @@ export const Search = ({ setWeather }) => {
           className="bg-white w-[300px] h-10 size-48 hover:border-0"
         />
       </div>
-      <div className="flex rounded-2xl w-[320px] bg-white flex-col">
+      {/* <div className="flex rounded-2xl w-[320px] bg-white flex-col">
         <div className="cache">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +103,7 @@ export const Search = ({ setWeather }) => {
           </svg>
           <div>{city}</div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

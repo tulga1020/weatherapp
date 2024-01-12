@@ -8,9 +8,9 @@ export const Leftcard = (props) => {
   return (
     <div className="flex items-center justify-center w-full h-full">
       <WeatherCard
-        color="w-[250px] h-[500px] bg-white rounded-2xl flex flex-col justify-between p-4 gap-4"
+        color="dayCard"
         textcolordate="text-black"
-        textcolorcity="text-black text-3xl"
+        textcolorcity="text-black text-2xl"
         date={date}
         city={city}
         degree={degree}

@@ -6,7 +6,7 @@ export const Rightcard = (props) => {
       <WeatherCard
         color="w-[250px] h-[500px]  bg-gradient-to-b from-[#111827] to-transparent rounded-2xl flex flex-col justify-between p-4 gap-4"
         textcolordate="text-white"
-        textcolorcity="text-white text-3xl"
+        textcolorcity="text-white text-2xl"
         date={date}
         city={city}
         degree={degree}

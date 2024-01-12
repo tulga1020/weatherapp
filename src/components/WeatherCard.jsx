@@ -2,8 +2,8 @@ import Image from "next/image";
 import { Icons } from "@/components/Icons";
 export const WeatherCard = (props) => {
   const {
-    textcolordate = "",
-    textcolorcity = "",
+    textcolordate,
+    textcolorcity,
     color,
     date,
     city,

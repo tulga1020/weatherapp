@@ -1,15 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Leftcard } from "@/components/Leftcard";
 import { Search } from "@/components/Search";
 import { Rightcard } from "@/components/Rightcard";
+import { Suggestion } from "@/components/Suggestion";
 export default function Home() {
   const [weather, setWeather] = useState([]);
-
+  useEffect(() => {
+    weather;
+  });
+  console.log(weather);
   return (
     <div className="bg-[#888888] w-screen h-lvh flex items-center justify-center">
-      <div className="w-[1200px] h-[800px] flex rounded-3xl  overflow-hidden relative">
+      <div className="w-[1200px] h-[800px] flex rounded-3xl  overflow-hidden bg-[#F3F4F6] relative">
         <div className="absolute top-5 left-5">
           <Search setWeather={setWeather} />
+        </div>
+        <div>
+          <Suggestion
+            city={weather.data?.city_name}
+            country_code={weather.data?.country_code}
+            time_zone={weather.data?.time_zone}
+            // setCityname={setCityname}
+          />
         </div>
         <div className="w-1/2 h-full bg-[#F3F4F6]">
           <Leftcard
@@ -27,7 +39,7 @@ export default function Home() {
             condition={weather.data?.data[39].weather.description}
           />
         </div>
-        <div className="h-100px w-100px rounded-full"></div>
+        <div className="h-100px w-100px rounded-full bg-[#FF8E27]"></div>
         <div className="bg-[#F3F4F6] rounded-full h-[120px] w-[120x] p-2 gap-4 flex items-center justify-center absolute top-[44%] left-[45%]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
